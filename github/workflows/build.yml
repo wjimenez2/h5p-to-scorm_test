@@ -1,0 +1,30 @@
+name: Export H5P to SCORM
+
+on:
+  push:
+    paths:
+      - 'input.h5p'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run SCORM export
+        run: npm run build
+
+      - name: Upload SCORM package
+        uses: actions/upload-artifact@v3
+        with:
+          name: scorm-package
+          path: output.zip
