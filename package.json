@@ -1,0 +1,10 @@
+{
+  "name": "h5p-to-scorm",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node cli.js export --input input.h5p --output output.zip --format scorm12"
+  },
+  "dependencies": {
+    "@lumieducation/h5p-cli": "^0.1.0"
+  }
+}
